@@ -19,6 +19,16 @@ const topicDiv = document.querySelector('.topics');
 axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
 .then(x => {
     console.log('response', x.data.topics)
+
+    const xTopic = x.data.topics;
+
+    xTopic.forEach(word => {
+        //const element = tabComponent(xTopic)
+        topicDiv.appendChild(tabComponent(word))
+        
+    })
+   
+
 })
 .catch(error => {
     console.log('Error, please try again later.')
@@ -28,11 +38,12 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
 
 function tabComponent(arr) {
 
-    arr.forEach(element => {
         const anItem = document.createElement('div');
         anItem.classList.add('.tab');
-    });
-       
+
+
+        return anItem;
+
 }
 
 
