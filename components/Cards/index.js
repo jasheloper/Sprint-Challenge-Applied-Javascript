@@ -29,11 +29,37 @@ const cardsX = document.querySelector('.cards-container');
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(x => {
     console.log('response', x.data.articles.bootstrap, x.data.articles.javascript, x.data.articles.jquery, x.data.articles.node, x.data.articles.technology)
-    const dataInfo = x.data.articles;
 
-   dataInfo.map(    (x) => {
+
+    const bootstrap = x.data.articles.bootstrap;
+    const javascript = x.data.articles.javascript;
+    const jquery = x.data.articles.jquery;
+    const node = x.data.articles.node;
+    const technology = x.data.articles.technology;
+
+
+   bootstrap.forEach(x => {
+
+         cardsX.appendChild(component("BootStrap: " + x));
+    })
+
+    javascript.forEach (x => {
         cardsX.appendChild(component(x));
     })
+
+    jquery.forEach (x => {
+        cardsX.appendChild(component(x));
+    })
+
+    node.forEach (x => {
+        cardsX.appendChild(component(x));
+    })
+
+    technology.forEach (x => {
+        cardsX.appendChild(component(x));
+    })
+
+
    
 })
 .catch(x => {
