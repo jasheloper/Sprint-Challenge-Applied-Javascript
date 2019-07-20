@@ -38,11 +38,22 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
     const technology = x.data.articles.technology;
 
 
-   bootstrap.forEach(x => {
-
-         cardsX.appendChild(component("BootStrap Articles: " + x));
+    // boostrap is test dummy for the rest
     
-    })
+  let bs = bootstrap.map( (x) => {
+    let b =  component("BootStrap Articles: " + x);
+    return b;
+   });
+
+   bs.forEach(x => {
+       cardsX.appendChild(x);
+   })
+
+    // boostrap is test dummy for the rest
+
+
+
+
 
     javascript.forEach (x => {
         cardsX.appendChild(component("JavaScript Articles: " + x));
@@ -87,21 +98,25 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 function component(arr) {
     const cardX = document.createElement('div');
     cardX.classList.add('card');
-    cardX.textContent = arr 
+    cardX.textContent = arr;
 
     const headlineX = document.createElement('div');
     headlineX.classList.add('headline');
+    cardX.appendChild(headlineX);
 
     const name = document.createElement('div');
     name.classList.add('author');
+    cardX.appendChild(name);
 
     const imgContainer = document.createElement('div');
     imgContainer.classList.add('img-container');
+    cardX.appendChild(imgContainer);
 
     const image = document.createElement('img');
-    imgContainer.appendChild(image);
+    cardX.appendChild(image);
 
     const authorX = document.createElement('span');
+    cardX.appendChild(authorX);
 
 
     return cardX;
