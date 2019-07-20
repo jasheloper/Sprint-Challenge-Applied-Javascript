@@ -20,23 +20,33 @@
 
 
 const cardsX = document.querySelector('.cards-container');
+// cardsX.appendChild(component('testing')) -- test passed
 
 
 
 // https://lambda-times-backend.herokuapp.com/articles
+
 axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 .then(x => {
     console.log('response', x.data.articles)
-    dataInfo = x.data.articles;
+    const dataInfo = x.data.articles;
+
+   dataInfo.map(    (x) => {
+        cardsX.appendChild(component(x));
+    })
+   
 })
 .catch(x => {
-    onsole.log('Error, please try again later.')
+    console.log('Error, please try again later.')
 })
 
 
-function component() {
+
+
+function component(arr) {
     const cardX = document.createElement('div');
     cardX.classList.add('card');
+    cardX.textContent = arr;
 
     const headlineX = document.createElement('div');
     headlineX.classList.add('headline');
@@ -51,4 +61,7 @@ function component() {
     imgContainer.appendChild(image);
 
     const authorX = document.createElement('span');
+
+
+    return cardX;
 }
