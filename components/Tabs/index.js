@@ -23,9 +23,7 @@ axios.get(`https://lambda-times-backend.herokuapp.com/topics`)
     const xTopic = x.data.topics;
 
     xTopic.forEach(word => {
-        //const element = tabComponent(xTopic)
         tabComponent(word)
-        
     })
    
 
@@ -40,31 +38,10 @@ function tabComponent(arr) {
 
         const anItem = document.createElement('div');
         anItem.classList.add('tab');
-
-        topicDiv.appendChild(anItem)
-
         anItem.textContent = arr
 
+        topicDiv.appendChild(anItem)
 
         return anItem;
 
 }
-
-
-
-
-
-
-
-//component
-// function tabComponent(arr) {
-
- 
-//    arr.forEach(x => {
-//        const item = document.createElement('div');
-//        item.classList.add('.tab');
-//        item.textContent = x;
-//    });
-// }
-
-// tabComponent(arr);

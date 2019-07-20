@@ -40,23 +40,24 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 
    bootstrap.forEach(x => {
 
-         cardsX.appendChild(component("BootStrap: " + x));
+         cardsX.appendChild(component("BootStrap Articles: " + x));
+    
     })
 
     javascript.forEach (x => {
-        cardsX.appendChild(component(x));
+        cardsX.appendChild(component("JavaScript Articles: " + x));
     })
 
     jquery.forEach (x => {
-        cardsX.appendChild(component(x));
+        cardsX.appendChild(component("jQuery Articles:  " + x));
     })
 
     node.forEach (x => {
-        cardsX.appendChild(component(x));
+        cardsX.appendChild(component("Node Articles:  " + x));
     })
 
     technology.forEach (x => {
-        cardsX.appendChild(component(x));
+        cardsX.appendChild(component("Technology Articles:  " + x));
     })
 
 
@@ -69,10 +70,24 @@ axios.get(`https://lambda-times-backend.herokuapp.com/articles`)
 
 
 
+
+
+// Create a function that will programmatically create the following DOM component:
+//
+// <div class="card">
+//   <div class="headline">{Headline of article}</div>
+//   <div class="author">
+//     <div class="img-container">
+//       <img src={url of authors image} />
+//     </div>
+//     <span>By {authors name}</span>
+//   </div>
+// </div>
+
 function component(arr) {
     const cardX = document.createElement('div');
     cardX.classList.add('card');
-    cardX.textContent = arr;
+    cardX.textContent = arr 
 
     const headlineX = document.createElement('div');
     headlineX.classList.add('headline');
